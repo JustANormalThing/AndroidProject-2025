@@ -1,9 +1,10 @@
 package com.example.myapplication
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
 class SecondActivity : AppCompatActivity() {
@@ -12,21 +13,15 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second1)
 
-        // Get the message passed from MainActivity
-        val message = intent.getStringExtra("message")
+        val noteEditText: EditText = findViewById(R.id.noteEditText)
+        val saveButton: Button = findViewById(R.id.saveButton)
 
-        // Find the TextView in activity_second.xml and display the message
-        val textView: TextView = findViewById(R.id.textView)
-        textView.text = message // Display the message in the TextView
-
-        // Button to return data
-        val returnButton: Button = findViewById(R.id.returnButton)
-        returnButton.setOnClickListener {
-            // Create an Intent to return data
-            val returnIntent = Intent()
-            returnIntent.putExtra("resultMessage", "Hello back from SecondActivity")
-            setResult(RESULT_OK, returnIntent) // Set the result with data
-            finish() // Finish the activity and return to MainActivity
+        saveButton.setOnClickListener {
+            val note = noteEditText.text.toString()
+            val resultIntent = Intent()
+            resultIntent.putExtra("note", note)
+            setResult(Activity.RESULT_OK, resultIntent)
+            finish() // Close the SecondActivity
         }
     }
 }
