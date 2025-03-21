@@ -21,7 +21,7 @@ class SecondActivity : AppCompatActivity() {
             val resultIntent = Intent()
             resultIntent.putExtra("note", note)
             setResult(Activity.RESULT_OK, resultIntent)
-            finish() // Close the SecondActivity
+            finish() // Close the SecondActivity1
         }
     }
 }
