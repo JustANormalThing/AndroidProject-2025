@@ -5,4 +5,5 @@
     <string name="textview">TextView</string>
     <string name="message_will_be_displayed_here1">Message will be displayed here</string>
     <string name="return_to_mainactivity">Return to MainActivity</string>
+    <string name="enter_your_note">Enter your note</string>
 </resources>
